@@ -20,15 +20,15 @@
     <meta name="keywords" content="M42,music production,programming">
     
     <meta name="description" content="">
-    <meta name="description" content="2020&#x2F;11&#x2F;12 将项目打包为jar，部署到阿里云服务器，（进行压力测试） 地址： http:&#x2F;&#x2F;39.106.68.255:8800     SpringBoot项目部署到阿里云服务器详细步骤：   https:&#x2F;&#x2F;blog.csdn.net&#x2F;allen_csdns&#x2F;article&#x2F;details&#x2F;104554928  阿里云开放安全组端口8800  用xshell连接服务器  Ubuntu">
+    <meta name="description" content="2020&#x2F;11&#x2F;12 将项目打包为jar，部署到阿里云服务器，用JMeter进行压力测试 地址： http:&#x2F;&#x2F;39.106.68.255:8800     SpringBoot项目部署到阿里云服务器详细步骤：   https:&#x2F;&#x2F;blog.csdn.net&#x2F;allen_csdns&#x2F;article&#x2F;details&#x2F;104554928  阿里云开放安全组端口8800  用xshell连接服务器  U">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日志">
 <meta property="og:url" content="http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/index.html">
 <meta property="og:site_name" content="M42">
-<meta property="og:description" content="2020&#x2F;11&#x2F;12 将项目打包为jar，部署到阿里云服务器，（进行压力测试） 地址： http:&#x2F;&#x2F;39.106.68.255:8800     SpringBoot项目部署到阿里云服务器详细步骤：   https:&#x2F;&#x2F;blog.csdn.net&#x2F;allen_csdns&#x2F;article&#x2F;details&#x2F;104554928  阿里云开放安全组端口8800  用xshell连接服务器  Ubuntu">
+<meta property="og:description" content="2020&#x2F;11&#x2F;12 将项目打包为jar，部署到阿里云服务器，用JMeter进行压力测试 地址： http:&#x2F;&#x2F;39.106.68.255:8800     SpringBoot项目部署到阿里云服务器详细步骤：   https:&#x2F;&#x2F;blog.csdn.net&#x2F;allen_csdns&#x2F;article&#x2F;details&#x2F;104554928  阿里云开放安全组端口8800  用xshell连接服务器  U">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-09T23:48:01.000Z">
-<meta property="article:modified_time" content="2020-11-12T13:38:11.467Z">
+<meta property="article:modified_time" content="2020-11-12T16:57:47.035Z">
 <meta property="article:author" content="M42">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
@@ -278,7 +278,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">989</span>Reading time: <span class="post-count reading-time">4 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1k</span>Reading time: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -408,7 +408,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h3 id="2020-11-12"><a href="#2020-11-12" class="headerlink" title="2020/11/12"></a>2020/11/12</h3><ul>
-<li><p>将项目打包为jar，部署到阿里云服务器，（进行压力测试）</p>
+<li><p>将项目打包为jar，部署到阿里云服务器，用JMeter进行压力测试</p>
 <p>地址： <a href="http://39.106.68.255:8800" target="_blank" rel="noopener">http://39.106.68.255:8800</a></p>
 </li>
 </ul>
@@ -424,7 +424,7 @@ height:50vh;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  mkdir -p /server/tools</span><br><span class="line">  <span class="built_in">cd</span> /server/tools</span><br><span class="line">  </span><br><span class="line">  wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br><span class="line">  </span><br><span class="line">  tar -xzf lrzsz-0.12.20.tar.gz</span><br><span class="line">  <span class="built_in">cd</span> lrzsz-0.12.20</span><br><span class="line">  ./configure --prefix=/usr/<span class="built_in">local</span>/lrzsz</span><br><span class="line">  sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
 <p>创建连接：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">cd</span> /usr/bin</span><br><span class="line">  sudo ln -s /usr/<span class="built_in">local</span>/lrzsz/bin/lrz rz</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/lrzsz/bin/lsz sz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/bin</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/lrzsz/bin/lrz rz</span><br><span class="line">sudo ln -s /usr/<span class="built_in">local</span>/lrzsz/bin/lsz sz</span><br></pre></td></tr></table></figure>
 
 <p>以后就可以直接在xshell里连接服务器，用 rz 命令上传文件</p>
 </li>
@@ -432,7 +432,7 @@ height:50vh;
 </li>
 <li><p>服务器安装mysql</p>
 <p><a href="https://blog.csdn.net/weixx3/article/details/80782479" target="_blank" rel="noopener">https://blog.csdn.net/weixx3/article/details/80782479</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
 
 <p>初始化配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
@@ -457,8 +457,9 @@ height:50vh;
 
 <p>修改登陆方式：root本来只能auth_socket，现在改成mysql_native_password能用password登录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set plugin&#x3D;&#39;mysql_native_password&#39; where user &#x3D; &#39;root&#39;;</span><br></pre></td></tr></table></figure>
-
-
+</li>
+<li><p>服务器后台运行jar包，在后端查看日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar &lt;包名&gt; &amp; tail -f nohup.out</span><br></pre></td></tr></table></figure>
 
 
 
@@ -526,7 +527,7 @@ height:50vh;
             <p>Author：<a href="http://m42m42m42.github.io">M42</a>
             <p>原文链接：<a href="http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/">http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/</a>
             <p>发表日期：<a href="http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/">November 10th 2020, 7:48:01 am</a>
-            <p>更新日期：<a href="http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/">November 12th 2020, 9:38:11 pm</a>
+            <p>更新日期：<a href="http://m42m42m42.github.io/2020/11/10/%E6%97%A5%E5%BF%97/">November 13th 2020, 12:57:47 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -827,10 +828,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 12
@@ -869,12 +866,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >Java基础，集合类，多线程</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >Java基础，集合类，多线程</a>
         </li>
     
     
