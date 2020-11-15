@@ -20,17 +20,21 @@
     <meta name="keywords" content="M42,music production,programming">
     
     <meta name="description" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="M42">
-<meta property="og:url" content="http://m42m42m42.github.io/archives/2020/05/index.html">
+    <meta name="description" content="数据库锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；InnoDB存储引擎既支持行级锁（ row-level locking），也支持表级锁，但默认情况下是采用行级锁。 MySQL主要的两种锁的特性可大致归纳如下:  表级锁： 开销小，加锁快；不会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（转载）MySQL锁">
+<meta property="og:url" content="http://m42m42m42.github.io/2020/11/15/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89MySQL%E9%94%81/index.html">
 <meta property="og:site_name" content="M42">
+<meta property="og:description" content="数据库锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；InnoDB存储引擎既支持行级锁（ row-level locking），也支持表级锁，但默认情况下是采用行级锁。 MySQL主要的两种锁的特性可大致归纳如下:  表级锁： 开销小，加锁快；不会">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-15T03:26:22.000Z">
+<meta property="article:modified_time" content="2020-11-15T03:26:50.127Z">
 <meta property="article:author" content="M42">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>M42&#39;s Studio</title>
+    <title>（转载）MySQL锁 · M42&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -211,12 +215,23 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >M42&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">（转载）MySQL锁</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>M42's Studio.</a>
 </header>
@@ -228,24 +243,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            （转载）MySQL锁
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">2.2k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/11/15</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,34 +405,114 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/05/03/503/" >
-            
-                <span>503</span>
-        </a>
-        <div class="abstract-content">
-            万事俱备，只欠东风。
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；InnoDB存储引擎既支持行级锁（ row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
+<p>MySQL主要的两种锁的特性可大致归纳如下:</p>
+<ul>
+<li>表级锁： 开销小，加锁快；不会出现死锁(因为MyISAM会一次性获得SQL所需的全部锁)；锁定粒度大，发生锁冲突的概率最高,并发度最低。</li>
+<li>行级锁： 开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。</li>
+</ul>
+<p>考虑上述特点，表级锁使用与并发性不高，以查询为主，少量更新的应用，比如小型的web应用；而行级锁适用于高并发环境下，对事务完整性要求较高的系统，如在线事务处理系统。</p>
+<h3 id="MyISAM锁细述"><a href="#MyISAM锁细述" class="headerlink" title="MyISAM锁细述"></a>MyISAM锁细述</h3><p>(1). 锁模式</p>
+<p>MySQL的表级锁有两种模式： 表共享读锁（Table Read Lock）和表独占写锁（Table Write Lock）。</p>
+<p>(2).  如何加锁</p>
+<p>当MyISAM在执行查询语句时，会自动给涉及到表加读锁，在执行更新操作时，会加写锁。当然用户也可以用LOCK TABLE 去显式的加锁。显式的加锁一般是应用于：需要在一个时间点实现多个表的一致性读取，不然的话，可能读第一个表时，其他表由于还没进行读操作，没有自动加锁，可能数据会发生改变。并且显示加锁后只能访问加锁的表，不能访问其他表。</p>
+<p>(3). 并发插入</p>
+<p>MyISAM存储引擎有个系统变量 concurrent_insert，专门用来控制并发插入的行为，可以取 0 ， 1 ， 2。</p>
+<p>0表示不允许并发插入，1表示表中间没有删除的行时可以在表末尾插入，2表示总是可以插入。</p>
+<p>一般如果对并发要求比较高的情况下，可以设置为2，总是可以插入，然后定期在数据库空闲时间对表进行optimize。</p>
+<p>(4). 锁的调度</p>
+<p>需要注意的是，其中读操作不会阻塞其他用户对同一表的读请求，但会阻塞对同一表的写请求；并且当写锁和读锁同时被申请时，优先获得写锁，这也这正是表级锁发生锁冲突概率最高的原因，因为写锁可能会一直阻塞读锁，所以不适合有大量写操作的环境下工作。这一问题可以通过设置low-priority-updates这一启动参数来降低写的优先级。<br>虽然写锁优先于读锁获取，但是长时间的查询操作也可能会让写操作饿死，所以尽量避免一条SQL语句执行所有的查询，应该进行必要的分解。</p>
+<h3 id="InnoDB锁细述"><a href="#InnoDB锁细述" class="headerlink" title="InnoDB锁细述"></a>InnoDB锁细述</h3><p>由于InnoDB支持事务，并默认是使用行级锁，所以InnoDB的锁问题和MyISAM锁问题还是有蛮大差别的。</p>
+<p>(1). 锁模式</p>
+<p>共享锁(S)和排他锁(X)，分别类似于MyISAM的读锁和写锁。对于 UPDATE、 DELETE 和 INSERT 语句，InnoDB会自动给涉及数据集加排他锁（X)；对于普通 SELECT 语句，InnoDB不会加任何锁。</p>
+<p>(2). 如何加锁</p>
+<p>可以显式的加锁，用lock in share mode 显式的加共享锁，用 for update 显式的加排他锁。</p>
+<p>需要注意的是，如果线程A加了共享锁后，线程B对同一个表加了共享锁，那么两个线程需要进行更新操作时会产生死锁。所以，进行更新操作时最好加排他锁。</p>
+<p>(3). InnoDB行锁的实现方式——索引加锁</p>
+<p>这一点与Oracle不同，所以这也意味着(重要)：1. 只有通过索引条件检索数据时，InnoDB才会使用行级锁，否则会使用表级锁。 2. 即使是访问不同行的记录，如果使用的是相同的索引键，会发生锁冲突。 3. 如果数据表建有多个索引时，可以通过不同的索引锁定不同的行。</p>
+<p>(4). 间隙锁</p>
+<p>InnoDB支持事务，为了满足隔离级别的要求，InnoDB有个间隙锁，当使用范围查找时，InnoDB会给满足key范围要求，但实际并不存在的记录加锁。例如：select * from user where id &gt; 100 for updata 会给ID&gt;100的记录加排他锁，满足这个范围，但不存在的记录，会加间隙锁，这样可以避免幻读，避免读取的时候插入满足条件的记录。</p>
+<p>(5). 隔离级别与锁</p>
+<p>一般来说，隔离级别越高，加锁就越严格。这样，产生锁冲突的概率就越大，一般实际应用中，通过优化应用逻辑，选用 可提交读 级别就够了。对于一些确实需要更高隔离级别的事务，再通过set session transaction isolation level+”级别” 来动态改变满足需求。</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>MyISAM是没有死锁问题的，因为他会一次性获得所有的锁。InnoDB发生死锁后一般能自动检测到，并使一个事务释放锁并回退，另一个事务获得锁，继续完成事务。</p>
+<p>在应用中，可以通过如下方式来尽可能的避免死锁：</p>
+<p>(1) 如果不同的程序会并发的存取多个表，应尽量约定以相同的顺序来访问表，这样可以大大降低产生死锁的机会。</p>
+<p>(2) 在程序以批量方式处理数据时，如果事先对数据排序，保证每个线程按固定的顺序来处理记录，也可以大大的降低出现死锁的可能。</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="秒杀一"><a href="#秒杀一" class="headerlink" title="秒杀一"></a>秒杀一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 查询库存，由于是主键查询使用到了索引，所以是行级锁</span><br><span class="line">SELECT number FROM seckill WHERE seckill_id&#x3D;? FOR UPDATE</span><br><span class="line">## 如果库存大于秒杀数则更新，UPDATE 操作也是行级锁</span><br><span class="line">UPDATE seckill  SET number&#x3D;number-1 WHERE seckill_id&#x3D;?</span><br></pre></td></tr></table></figure>
 
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+<h4 id="秒杀二"><a href="#秒杀二" class="headerlink" title="秒杀二"></a>秒杀二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;直接更新数据，如果count为1秒杀成功否则失败</span><br><span class="line">UPDATE seckill  SET number&#x3D;number-1 WHERE seckill_id&#x3D;? AND number&gt;0</span><br></pre></td></tr></table></figure>
+
+<h4 id="秒杀三"><a href="#秒杀三" class="headerlink" title="秒杀三"></a>秒杀三</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取商品版本号以及剩余数量</span><br><span class="line">SELECT version,number  FROM seckill WHERE seckill_id&#x3D;?</span><br><span class="line">&#x2F;&#x2F;判断剩余数量是否充足并更新</span><br><span class="line">UPDATE seckill  SET number&#x3D;number-?,version&#x3D;version+1 WHERE seckill_id&#x3D;? AND version &#x3D; ? </span><br><span class="line">&#x2F;&#x2F;如果更新数量等于1秒杀成功否则失败</span><br></pre></td></tr></table></figure>
+
+<p>Mysql innodb虽是锁行的，但是如果没有索引，或者索引唯一性不是特别强，那就要锁表了。</p>
+<p>加锁对并发访问的影响体现在锁的粒度上，可见行锁粒度最小，并发访问最好，页锁粒度最大，表锁介于2者之间。</p>
+<p>锁有两种：悲观锁和乐观锁。悲观锁假定其他用户企图访问或者改变你正在访问、更改的对象的概率是很高的，因此在悲观锁的环境中，在你开始改变此对象之前就将该对象锁住，并且直到你提交了所作的更改之后才释放锁。悲观的缺陷是不论是页锁还是行锁，加锁的时间可能会很长，这样可能会长时间的限制其他用户的访问，也就是说悲观锁的并发访问性不好。</p>
+<p>与悲观锁相反，乐观锁则认为其他用户企图改变你正在更改的对象的概率是很小的，因此乐观锁直到你准备提交所作的更改时才将对象锁住，当你读取以及改变该对象时并不加锁。可见乐观锁加锁的时间要比悲观锁短，乐观锁可以用较大的锁粒度获得较好的并发访问性能。但是如果第二个用户恰好在第一个用户提交更改之前读取了该对象，那么当他完成了自己的更改进行提交时，数据库就会发现该对象已经变化了，这样，第二个用户不得不重新读取该对象并作出更改。这说明在乐观锁环境中，会增加并发用户读取对象的次数。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/zhanht/p/5431273.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhanht/p/5431273.html</a></p>
+<p><a href="https://www.cnblogs.com/liujiacai/p/7605612.html" target="_blank" rel="noopener">https://www.cnblogs.com/liujiacai/p/7605612.html</a></p>
+<p><a href="https://www.cnblogs.com/claireyuancy/p/7258314.html" target="_blank" rel="noopener">https://www.cnblogs.com/claireyuancy/p/7258314.html</a></p>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="http://m42m42m42.github.io">M42</a>
+            <p>原文链接：<a href="http://m42m42m42.github.io/2020/11/15/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89MySQL%E9%94%81/">http://m42m42m42.github.io/2020/11/15/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89MySQL%E9%94%81/</a>
+            <p>发表日期：<a href="http://m42m42m42.github.io/2020/11/15/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89MySQL%E9%94%81/">November 15th 2020, 11:26:22 am</a>
+            <p>更新日期：<a href="http://m42m42m42.github.io/2020/11/15/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89MySQL%E9%94%81/">November 15th 2020, 11:26:50 am</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/11/12/Linux/" title= "Linux">
+                    <div class="prevTitle">Linux</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "74u2ElNxDQoroPX9yWL53FDF-gzGzoHsz",
+        appKey: "ByYW6ViGUB9wb1dLCyloCXxd",
+        placeholder: "留下你的评论吧~~",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -465,6 +604,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库锁"><span class="toc-number">1.</span> <span class="toc-text">数据库锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyISAM锁细述"><span class="toc-number">1.2.</span> <span class="toc-text">MyISAM锁细述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB锁细述"><span class="toc-number">1.3.</span> <span class="toc-text">InnoDB锁细述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.4.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.5.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#秒杀一"><span class="toc-number">1.5.1.</span> <span class="toc-text">秒杀一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#秒杀二"><span class="toc-number">1.5.2.</span> <span class="toc-text">秒杀二</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#秒杀三"><span class="toc-number">1.5.3.</span> <span class="toc-text">秒杀三</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -766,6 +923,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
