@@ -354,6 +354,29 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/17/Java%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" >
+            
+                <span>Java实现单例模式的几种方式</span>
+        </a>
+        <div class="abstract-content">
+            1234567891011121314151617public class Singleton1 &#123;	private static Singleton1 instance = null;		private Singleton1() &#123;			&#125;		public static Singleton1 getInstance() &#123;		if(instance == null) &#123;			instance = new Singleton1();		&#125;		return instance;	&#125;&#125;//普通懒汉式单例模式：非线程...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/15/1215/" >
             
                 <span>1215</span>
@@ -688,39 +711,6 @@ Ubuntu安装lrzsz（用于上传文件）：
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >
-            
-                <span>框架</span>
-        </a>
-        <div class="abstract-content">
-            框架，缓存，中间件
-SpringSpring 的 bean 作用域（scope）类型
-singleton:单例，默认作用域。
-prototype:原型，每次创建一个新对象。
-request:请求，每次Http请求创建一个新对象，适用于WebApplicationContext环境下。
-session:会话，同一个会话共享一个实例，不同会话使用不用的实例。
-global-session:全局会话，所有会话共享一个实例
-
-
-SpringBoot@RequestMapping
-https://blog.csdn.net/weixin_43453386/article/details/83419...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -1035,9 +1025,20 @@ https://blog.csdn.net/weixin_43453386/article/details/83419...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -1050,6 +1051,11 @@ https://blog.csdn.net/weixin_43453386/article/details/83419...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href= "/2020/12/17/Java%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" >Java实现单例模式的几种方式</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1088,12 +1094,12 @@ https://blog.csdn.net/weixin_43453386/article/details/83419...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >框架</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" >设计模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" >设计模式</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >框架</a>
         </li>
     
     
@@ -1103,12 +1109,12 @@ https://blog.csdn.net/weixin_43453386/article/details/83419...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >Java基础，集合类，多线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >Java基础，集合类，多线程</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
         </li>
     
     
