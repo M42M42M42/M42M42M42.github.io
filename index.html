@@ -367,6 +367,30 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/22/Atomic%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" >
+            
+                <span>Atomic原子操作</span>
+        </a>
+        <div class="abstract-content">
+            volatile不是线程安全的。如下：
+1234567891011121314public class VolatileTest &#123;	public static volatile int num = 0;	public static void main(String args[]) throws Exception &#123;		for(int i = 0; i &lt; 100; i++) &#123;			new Thread(() -&gt; &#123;				for(int j = 0; j &lt; 20000; j++) &#123;					num++;			...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/12/22/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E8%BE%93%E5%87%BA123/" >
             
                 <span>Java多线程交替输出123</span>
@@ -667,40 +691,6 @@ MySQL主要的两种锁的特性可大致归纳如下:
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/15</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/11/12/Linux/" >
-            
-                <span>Linux</span>
-        </a>
-        <div class="abstract-content">
-            Linux常用指令mkdir -p     若目录不存在，则创建目录
-touch     创建文件
-pwd    查看当前路径
-cd -    返回上级目录
-ll    罗列出当前文件或目录的详细信息，含有时间、读写权限、大小、时间等信息
-ls    仅罗列出当前文件名或目录名
-ls -l    等同于ll
-ps -ef | grep -i      查看进程
-netstat -anp | grep     查看端口使用情况
-lsof -i:    查看占用端口的PID
-kill -9 &lt;进程id&gt;    关掉进程
-killall -u &lt;用户名&gt;    关掉某用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/12</span>
             </div>
             <!-- tags  -->
             
@@ -1164,9 +1154,26 @@ killall -u &lt;用户名&gt;    关掉某用...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 22
         </div>
         <!-- search  -->
         
@@ -1179,6 +1186,11 @@ killall -u &lt;用户名&gt;    关掉某用...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href= "/2020/12/22/Atomic%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" >Atomic原子操作</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1237,12 +1249,12 @@ killall -u &lt;用户名&gt;    关掉某用...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >框架</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%97%A5%E5%BF%97/" >日志</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%97%A5%E5%BF%97/" >日志</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >框架</a>
         </li>
     
     
