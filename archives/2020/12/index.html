@@ -359,7 +359,7 @@
                 <span>JUC核心类使用</span>
         </a>
         <div class="abstract-content">
-            使用ReadWriteLock实现读写锁12345678910111213141516171819202122232425262728293031323334353637383940414243import java.util.concurrent.locks.*;public class TestReadWriteLock &#123;	private ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();		public void myRead(Thread thread) &#123;		rwl.readLock().l...
+            使用CopyOnWrite实现并发写操作12345678910111213141516import java.util.*;import java.util.concurrent.*;public class TestCopyOnWriteArrayList &#123;	public static void main(String args[]) &#123;		CopyOnWriteArrayList&lt;String&gt; names = new CopyOnWriteArrayList&lt;&gt;();		names.add("s1");		names.add("s2")...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -970,6 +970,12 @@ rpc框架
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 24
@@ -1053,6 +1059,11 @@ rpc框架
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%97%A5%E5%BF%97/" >日志</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%BC%93%E5%AD%98%EF%BC%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/" >框架</a>
         </li>
     
@@ -1063,22 +1074,17 @@ rpc框架
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%97%A5%E5%BF%97/" >日志</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E5%9F%BA%E7%A1%80%EF%BC%8C%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" >Java基础，集合类，多线程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%95%B0%E6%8D%AE%E5%BA%93/" >数据库</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" >Java虚拟机</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2020/11/10/%E6%95%B0%E6%8D%AE%E5%BA%93/" >数据库</a>
         </li>
     
     
